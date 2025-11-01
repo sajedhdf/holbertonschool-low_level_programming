@@ -3,17 +3,17 @@
 #include <time.h>
 
 /**
- * main - assign a random number to n each time it is executed
- * and prints the last digit of n
+ * main - prints the last digit of a randomly generated number
+ *
  * Return: 0
  */
 int main(void)
 {
-	int n, last;
+	int n;
+	int last;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
 	last = n % 10;
 
 	printf("Last digit of %d is %d", n, last);
@@ -24,8 +24,7 @@ int main(void)
 		printf(" and is 0\n");
 	else
 		printf(" and is less than 6 "
-		"and not 0\n");
-
+		       "and not 0\n");
 
 	return (0);
 }
