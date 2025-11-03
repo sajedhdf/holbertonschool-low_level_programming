@@ -4,3 +4,4 @@ hello_world/*.o
 hello_world/a.out
 hello_world/cisfun
 hello_world/c
+*-main.c
