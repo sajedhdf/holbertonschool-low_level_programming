@@ -1,10 +1,13 @@
 #include "main.h"
+#include <stdio.h>
 
 int main(void)
 {
-    char *str;
+    char *s = "hello, world";
+    char *f = "world";
+    char *t;
 
-    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-    print_rev(str);
+    t = _strpbrk(s, f);
+    printf("%s\n", t);
     return (0);
 }
