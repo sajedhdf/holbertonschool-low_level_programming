@@ -5,3 +5,17 @@ hello_world/a.out
 hello_world/cisfun
 hello_world/c
 *-main.c
+
+# Ignore compiled binaries everywhere
+*.o
+*.out
+*.exe
+a
+a.out
+s
+2-str_concat
+
+# Ignore swap & temp files
+*.swp
+*.swo
+.DS_Store
