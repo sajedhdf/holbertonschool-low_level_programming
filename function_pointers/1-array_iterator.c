@@ -2,11 +2,11 @@
 
 /**
  * array_iterator - executes a function on each element of an array
- * @array: the array
- * @size: number of elements
+ * @array: array of integers
+ * @size: size of the array
  * @action: pointer to the function to use
  *
- * Return: Nothing.
+ * Return: nothing
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
