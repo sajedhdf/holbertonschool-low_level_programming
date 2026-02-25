@@ -13,8 +13,7 @@ int main(void)
 	{
 		putchar(x + '0');
 	}
-	if (x < 9)
 
-	putchar('\n');
-	return (0);
+		putchar('\n');
+		return (0);
 }
