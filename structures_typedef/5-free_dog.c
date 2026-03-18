@@ -5,7 +5,7 @@
  * free_dog - frees a dog structure
  * @d: pointer to struct dog
  */
-void free_dog(dog_t *d);
+void free_dog(struct dog *d)
 {
 	if (d == NULL)
 	return;
