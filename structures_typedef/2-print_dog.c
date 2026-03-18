@@ -2,13 +2,13 @@
 #include "dog.h"
 
 /**
- * print_dog - print the information of a dog
- * @d: pointer to struct dog
- */
+* print_dog - print the information of a dog
+* @d: pointer to struct dog
+*/
 void print_dog(struct dog *d)
 {
 	if (d == NULL)
-		return;
+	return;
 
 	printf("Name: %s\n", d->name);
 	printf("Age: %f\n", d->age);
