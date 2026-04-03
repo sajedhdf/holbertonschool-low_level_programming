@@ -6,7 +6,7 @@
  *
  * Return: sum of all n, 0 if list is empty
  */
- int sum_dlistint(dlistint_t *head)
+int sum_dlistint(dlistint_t *head)
 {
 	int sum = 0;
 
