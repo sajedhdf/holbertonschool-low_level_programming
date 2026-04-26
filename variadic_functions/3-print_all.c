@@ -1,27 +1,89 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
- * print_all - prints anything
- * @format: list of types
+* print_char - print a char
+* @args: char - char to print
+* Return: void
+*/
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+
+/**
+* print_int - print an int
+* @args: int - int to print
+* Return: void
+*/
+void print_int(va_list args)
+{
+	printf("%i", va_arg(args, int));
+}
+/**
+* print_float - print a float
+* @args: float - float to print
+* Return: void
+*/
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+/**
+* print_string - print a string
+* @args: string - string to print
+* Return: void
+*/
+void print_string(va_list args)
+{
+	char *s = va_arg(args, char *);
+
+	if (s == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", s);
+}
+/**
+ * print_all - print all that pass in args
+ * @format: string - could be c, i, f, s
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
-	va_list ap;
-	int i = 0;
-	char *s, *sep = "";
+	va_list args;
+	int i, j;
+	char indicator;
+	char *separator;
 
-	va_start(ap, format);
-	while (format && format[i])
+	print_element array_of_struct[4] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+	};
+	separator = "";
+	i = 0;
+	va_start(args, format);
+	while (format != NULL && format[i] != '\0')
 	{
-		if (format[i] == 'c' || format[i] == 'i')
-			printf(format[i] == 'c' ? "%s%c" : "%s%d", sep, va_arg(ap, int)), sep = ", ";
-		if (format[i] == 'f' || format[i] == 's')
-			format[i] == 'f'
-			? printf("%s%f", sep, va_arg(ap, double))
-			: (s = va_arg(ap, char *), printf("%s%s", sep, s ? s : "(nil)")),
-			sep = ", ";
+		indicator = format[i];
+		j = 0;
+
+		while (j < 4)
+		{
+			if (indicator == array_of_struct[j].id)
+			{
+				printf("%s", separator);
+				array_of_struct[j].f(args);
+				separator = ", ";
+			}
+			j++;
+		}
 		i++;
 	}
 	printf("\n");
+	va_end(args);
 }
